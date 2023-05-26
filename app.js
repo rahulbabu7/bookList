@@ -44,8 +44,27 @@ class Ui {
     }
   }
   clearFields() {
-    document.getElementById('title').value = "";
-    document.getElementById('author').value = "";
-    document.getElementById('isbn').value = "";
+    document.getElementById("title").value = "";
+    document.getElementById("author").value = "";
+    document.getElementById("isbn").value = "";
   }
 }
+
+//event listeners
+
+document.getElementById('book_form').addEventListener("submit", (e) => {
+  const title = document.getElementById("title").value,
+    author = document.getElementById("author").value,
+    isbn = document.getElementById("isbn").value;
+
+  const book = new Book(title,author,isbn);
+  //instantiate UI
+  const ui = new Ui();
+
+  //add book to list
+  ui.addBookToList(book);
+  //console.log(Book)
+
+
+  e.preventDefault();
+});

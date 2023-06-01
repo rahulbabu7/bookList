@@ -64,7 +64,23 @@ document.getElementById('book_form').addEventListener("submit", (e) => {
   //add book to list
   ui.addBookToList(book);
   //console.log(Book)
+ //validate
+ if(title=== "" || author ===" "||isbn ===" "){
+  //error alert
+  ui.showAlert("please fill all the fields...")
+ }else{
+   ui.addBookToList(book)
+ 
+
+
+ // showing success
+ ui.showAlert("Book Added Successfully...")
+
+ //clear fields 
+  ui.clearFields();
 
 
   e.preventDefault();
+
+ }
 });
